@@ -1,3 +1,4 @@
+import { extendGraphqlSchema } from './mutations/index';
 import { CartItem } from './schemas/Cart';
 import 'dotenv/config';
 import { config, createSchema } from '@keystone-next/keystone/schema';
@@ -55,6 +56,7 @@ export default withAuth(
       ProductImage,
       CartItem
     }),
+    extendGraphqlSchema,
     ui: {
       // TODO: add ui config
       isAccessAllowed: ({ session }) => !!session?.data,
