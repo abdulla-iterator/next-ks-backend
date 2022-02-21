@@ -1,4 +1,7 @@
+import { Role } from './schemas/Role';
 import { extendGraphqlSchema } from './mutations/index';
+import { OrderItem } from './schemas/OrderItem';
+import { Order} from './schemas/Order';
 import { CartItem } from './schemas/Cart';
 import 'dotenv/config';
 import { config, createSchema } from '@keystone-next/keystone/schema';
@@ -54,7 +57,10 @@ export default withAuth(
       User,
       Product,
       ProductImage,
-      CartItem
+      CartItem,
+      OrderItem,
+      Order,
+      Role
     }),
     extendGraphqlSchema,
     ui: {
