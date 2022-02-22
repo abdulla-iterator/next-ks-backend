@@ -1,3 +1,4 @@
+import { permissionsList } from './schemas/fields';
 import { Role } from './schemas/Role';
 import { extendGraphqlSchema } from './mutations/index';
 import { OrderItem } from './schemas/OrderItem';
@@ -68,7 +69,7 @@ export default withAuth(
       isAccessAllowed: ({ session }) => !!session?.data,
     },
     session: withItemData(statelessSessions(sessionConfig), {
-      User: 'id name email',
+      User: `id name email role {${permissionsList.join(' ')}}`,
     }),
   })
 );
